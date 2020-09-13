@@ -16,22 +16,37 @@
 		"*"
 	],
 	"main": "./out/extension.js",
-	"contributes": {},
+	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "NodeJs Project Version",
+			"properties": {
+				"node-project-version.build-uri": {
+					"title": "Build URI",
+					"description": "Base URI for builds",
+					"scope": "window"
+				}
+			}
+		}
+	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
 		"compile": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
 		"postinstall": "node ./node_modules/vscode/bin/install",
-		"test": "npm run compile && node ./node_modules/vscode/bin/test"
+		"test": "npm run compile && node ./node_modules/vscode/bin/test",
+		"package": "vsce package"
 	},
 	"devDependencies": {
 		"@types/mocha": "^2.2.42",
 		"@types/node": "^10.12.21",
 		"tslint": "^5.12.1",
 		"typescript": "^3.3.1",
-		"vscode": "^1.1.28"
+		"vscode": "^1.1.28",
+		"vsce": "^1.79.5"
 	},
-	"dependencies": {},
+	"dependencies": {
+	},
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/LuisEGR/vscode-node-project-version.git"
